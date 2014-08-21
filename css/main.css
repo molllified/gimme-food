@@ -1,0 +1,75 @@
+body{
+	margin: 0;
+	overflow: auto;
+}
+
+.bg {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	/*z-index: 1;*/
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
+}
+
+.first {
+	background-image: url("../images/salmon.jpg");
+}
+
+.second {
+	background-image: url("../images/paella.jpg");	
+}
+
+.wrapper {
+  /* set the height of the element which contains what you want to center */
+  height: 100%;
+  /* these styles are optional, to set width horizontally center the page */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.wrapper:before, .container {
+  /* these are the important styles for the centered element: */
+  display: inline-block;
+  vertical-align: middle;
+  width:100%;
+}
+
+.wrapper:before {
+  /* this is the important part */
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+  /* this just takes care of whitespace added by having display:inline-block (there are other methods) */
+  margin-left: -0.25em;
+}
+
+.wrapper h1 {
+	z-index: 2;
+	position: relative;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 3px;
+	font-size: 40px;
+	text-shadow: 0.5px 1px 1px #CCC;
+	border: solid;
+	border-width: 6px;
+	padding: 20px 0;
+}
+
+.container p {
+	text-align: center;
+	color: #fff;
+	font-family: Lato;
+	font-weight: 400;
+	margin: 0;
+}
