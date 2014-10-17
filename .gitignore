@@ -1,4 +1,4 @@
 *.pyc
 venv
 .sass-cache
-.DS_STORE
+.DS_Store
