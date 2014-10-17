@@ -1,3 +1,5 @@
+@import 'compass/css3';
+
 body{
 	margin: 0;
 	overflow: auto;
@@ -39,6 +41,23 @@ body{
   width:100%;
 }
 
+.nav {
+	display: inline-block;
+
+	.next {
+		position: fixed;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color:rgba(0, 0, 0, 0);
+		width: 60px;
+	}
+
+	.next:hover {
+		background-color: rgba(0, 0, 0, .1);
+	}
+}
+
 .wrapper:before {
   /* this is the important part */
   content: '';
@@ -56,13 +75,9 @@ body{
 	vertical-align: middle;
 	text-align: center;
 	color: white;
-	text-transform: uppercase;
 	font-family: 'Lato', sans-serif;
-	letter-spacing: 3px;
-	font-size: 40px;
-	text-shadow: 0.5px 1px 1px #CCC;
-	border: solid;
-	border-width: 6px;
+	letter-spacing: 1px;
+	font-size: 20px;
 	padding: 20px 0;
 }
 

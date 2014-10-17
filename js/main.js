@@ -34,9 +34,6 @@ function newImage() {
     }
 		var newdiv = document.createElement('div');
 		newdiv.setAttribute('class',"bg "+ "bg"+counter);
-    // newdiv.setAttribute('data-center', "background-position: 50% 0px;");
-    // newdiv.setAttribute('data-top-bottom', "background-position: 50% -100px;");
-    // newdiv.setAttribute('data-anchor-target', ".bg"+counter);
 		newdiv.style.backgroundImage = 'url('+response+')';
 		newdiv.innerHTML="<div class='wrapper'><div class='container'><h1>hello</h1></div></div>"
 		document.body.appendChild(newdiv);
@@ -63,9 +60,9 @@ $(document).scroll(function(){
 
 $(document).ready(function() {
 	for (i=0; i <numToLoad; i++) {
-    newImage();
+    // newImage();
   }
-  loadImages(numToLoad);
+  // loadImages(numToLoad);
   skrollr = skrollr.init();
   skrollr.refresh();
 })

@@ -17,26 +17,19 @@ api_key = '47dbc3b01589b715b9c204211bcda208'
 api_secret = '4df9fe589fb912d4'
 
 flickr = flickrapi.FlickrAPI(api_key, api_secret)
-photos = flickr.photos_search(text='san francisco food', per_page='50', sort='relevance', format="json")
+photos = flickr.photos_search(text='san francisco food', per_page='50', sort='relevance', has_geo='true', format='json', extras='geo, url_o')
 response_parser = re.compile(r'jsonFlickrApi\((.*?)\)$')
 parsed_photos = response_parser.findall(photos)
 photos = json.loads(parsed_photos[0])
 photos_list = photos['photos']['photo']
-final_photos_list = []
-# print len(photos_list)
 
 print '['
 for photo in photos_list:
 	currId = photo['id']
 	currTitle = photo['title']
-	currphoto= flickr.photos_getSizes(photo_id=currId, format="json")
-	response_parser = re.compile(r'jsonFlickrApi\((.*?)\)$')
-	parsedPhoto = response_parser.findall(currphoto)
-	currphoto = json.loads(parsedPhoto[0])
-	# import pdb; pdb.set_trace()
-	currphoto_sizes = currphoto['sizes']['size']
-	
-	for size in currphoto_sizes:
-		if size['label'] == "Large":
-			print '{"id":"' + currId + '", "title":"' + currTitle + '", "source":"' + size['source']+'"},'
+	if 'url_o' in photo:
+		source = photo['url_o']
+	else:
+		source = "https://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg".format(photo['farm'], photo['server'], photo['id'], photo['secret'])
+	print '{"id":"' + currId + '", "title":"' + currTitle + '", "source":"' + source +'", "longitude":"' + str(photo['longitude']) + '", "latitude":"' + str(photo['latitude']) + '"},'
 print ']'

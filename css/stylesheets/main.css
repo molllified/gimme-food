@@ -1,0 +1,98 @@
+/* line 3, ../sass/main.scss */
+body {
+  margin: 0;
+  overflow: auto;
+}
+
+/* line 8, ../sass/main.scss */
+.bg {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  /*z-index: 1;*/
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+/* line 21, ../sass/main.scss */
+.first {
+  background-image: url("../images/salmon.jpg");
+}
+
+/* line 25, ../sass/main.scss */
+.second {
+  background-image: url("../images/paella.jpg");
+}
+
+/* line 29, ../sass/main.scss */
+.wrapper {
+  /* set the height of the element which contains what you want to center */
+  height: 100%;
+  /* these styles are optional, to set width horizontally center the page */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* line 37, ../sass/main.scss */
+.wrapper:before, .container {
+  /* these are the important styles for the centered element: */
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* line 44, ../sass/main.scss */
+.nav {
+  display: inline-block;
+}
+/* line 47, ../sass/main.scss */
+.nav .next {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  width: 60px;
+}
+/* line 56, ../sass/main.scss */
+.nav .next:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* line 61, ../sass/main.scss */
+.wrapper:before {
+  /* this is the important part */
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+  /* this just takes care of whitespace added by having display:inline-block (there are other methods) */
+  margin-left: -0.25em;
+}
+
+/* line 72, ../sass/main.scss */
+.wrapper h1 {
+  z-index: 2;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size: 20px;
+  padding: 20px 0;
+}
+
+/* line 84, ../sass/main.scss */
+.container p {
+  text-align: center;
+  color: #fff;
+  font-family: Lato;
+  font-weight: 400;
+  margin: 0;
+}
