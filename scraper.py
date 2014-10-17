@@ -17,7 +17,7 @@ api_key = '47dbc3b01589b715b9c204211bcda208'
 api_secret = '4df9fe589fb912d4'
 
 flickr = flickrapi.FlickrAPI(api_key, api_secret)
-photos = flickr.photos_search(text='San Francisco Food', in_gallery='true', per_page='50', format="json")
+photos = flickr.photos_search(text='san francisco food', per_page='50', sort='relevance', format="json")
 response_parser = re.compile(r'jsonFlickrApi\((.*?)\)$')
 parsed_photos = response_parser.findall(photos)
 photos = json.loads(parsed_photos[0])
@@ -33,6 +33,7 @@ for photo in photos_list:
 	response_parser = re.compile(r'jsonFlickrApi\((.*?)\)$')
 	parsedPhoto = response_parser.findall(currphoto)
 	currphoto = json.loads(parsedPhoto[0])
+	# import pdb; pdb.set_trace()
 	currphoto_sizes = currphoto['sizes']['size']
 	
 	for size in currphoto_sizes:
