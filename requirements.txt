@@ -1,0 +1,2 @@
+rauth == 0.7.0
+flickrapi == 1.4.4
