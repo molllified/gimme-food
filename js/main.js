@@ -63,6 +63,7 @@ $(document).ready(function() {
     // newImage();
   }
   // loadImages(numToLoad);
-  skrollr = skrollr.init();
-  skrollr.refresh();
+  // skrollr = skrollr.init();
+  // skrollr.refresh();
+  startTime();
 })

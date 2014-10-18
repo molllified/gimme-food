@@ -20,15 +20,38 @@ body {
 
 /* line 21, ../sass/main.scss */
 .first {
-  background-image: url("../images/salmon.jpg");
+  background-image: url("../../images/salmon.jpg");
 }
 
 /* line 25, ../sass/main.scss */
 .second {
-  background-image: url("../images/paella.jpg");
+  background-image: url("../../images/paella.jpg");
 }
 
 /* line 29, ../sass/main.scss */
+.container {
+  opacity: 0.87;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  z-index: 2;
+  text-align: center;
+}
+/* line 36, ../sass/main.scss */
+.container p {
+  font-weight: bolder;
+  font-size: 75px;
+  margin: 0;
+}
+/* line 42, ../sass/main.scss */
+.container h1 {
+  bottom: 25px;
+  position: relative;
+  letter-spacing: 1px;
+  font-size: 25px;
+  padding: 10px 0;
+}
+
+/* line 51, ../sass/main.scss */
 .wrapper {
   /* set the height of the element which contains what you want to center */
   height: 100%;
@@ -37,19 +60,19 @@ body {
   margin: 0 auto;
 }
 
-/* line 37, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 .wrapper:before, .container {
   /* these are the important styles for the centered element: */
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: bottom;
   width: 100%;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 .nav {
   display: inline-block;
 }
-/* line 47, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 .nav .next {
   position: fixed;
   right: 0;
@@ -58,41 +81,25 @@ body {
   background-color: transparent;
   width: 60px;
 }
-/* line 56, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 .nav .next:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+/* line 82, ../sass/main.scss */
+.nav .next img {
+  top: 50%;
+  left: 30%;
+  position: absolute;
+}
 
-/* line 61, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 .wrapper:before {
   /* this is the important part */
   content: '';
   display: inline-block;
   width: 0;
   height: 100%;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
   /* this just takes care of whitespace added by having display:inline-block (there are other methods) */
   margin-left: -0.25em;
-}
-
-/* line 72, ../sass/main.scss */
-.wrapper h1 {
-  z-index: 2;
-  position: relative;
-  vertical-align: middle;
-  text-align: center;
-  color: white;
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
-  font-size: 20px;
-  padding: 20px 0;
-}
-
-/* line 84, ../sass/main.scss */
-.container p {
-  text-align: center;
-  color: #fff;
-  font-family: Lato;
-  font-weight: 400;
-  margin: 0;
 }
