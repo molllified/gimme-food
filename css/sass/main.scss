@@ -6,6 +6,7 @@ body{
 }
 
 .bg {
+	position:absolute;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -15,15 +16,23 @@ body{
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center;
+	transition: all 1s ease-in-out;
 	height: 100vh;
+	display: block;
+	/*overflow: hidden;*/
+	opacity: 0;
+
+	&.active{
+		opacity: 1;
+	};
+	/*&:not(.active){
+		opacity: 0;
+		/*display: none;
+	}; */
 }
 
-.first {
-	background-image: url("../../images/salmon.jpg");
-}
-
-.second {
-	background-image: url("../../images/paella.jpg");	
+#bg0 {
+	background-image: url("../../images/paella.jpg");
 }
 
 .container {
@@ -32,6 +41,8 @@ body{
 	color: #fff;
 	z-index: 2;
 	text-align: center;
+	bottom: 0;
+	position: fixed;
 
 	p {
 		font-weight: bolder;
@@ -73,6 +84,7 @@ body{
 		bottom: 0;
 		background-color:rgba(0, 0, 0, 0);
 		width: 60px;
+		z-index: 3;
 	}
 
 	#next:hover {
@@ -80,7 +92,7 @@ body{
 	}
 
 	#next img {
-		top: 50%;
+		top: 45%;
 		left: 30%;
 		position: absolute;
 	}

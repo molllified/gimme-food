@@ -1,5 +1,5 @@
-var current = 8;
-var counter = 0;
+var current = 0;
+var counter = 1;
 var numToLoad= 10;
 var skrollr;
 var getImages= true;
@@ -25,40 +25,40 @@ function checkTime(i) {
 }
 
 function newImage() {
-	$.get('http://localhost:8080/', function (response) {
-	  // use response here; jQuery passes it as the first parameter
-		// alert(response)
+  $("#bg"+current).toggleClass("active");
+	current = current + 1;
+  $("#bg"+current).toggleClass("active");
+
+  if (current % 5 == 0) {
+    loadImages();
+  }
+  //swap out active transition stuff
+}
+
+function loadImages(number){
+  $.get('http://localhost:8080/', function (response) {
+    // use response here; jQuery passes it as the first parameter
+    // alert(response)
     if(response === 'None') {
       getImages = false;
       return;
     }
-    var bg = document.getElementById('bg');
-    bg.style.backgroundImage = 'url('+response+')';
-	});
-}
-
-function loadImages(number){
-  for (i=0; i <number; i++) {
-    if (getImages) {
-      newImage();
+    var list = response.split(',');
+    for (i=0; i< list.length; i++){
+      var newdiv = document.createElement('div');
+      newdiv.setAttribute('class',"bg");
+      newdiv.setAttribute('id',"bg"+counter);
+      newdiv.style.backgroundImage = 'url('+list[i]+')';
+      document.body.appendChild(newdiv);
+      counter +=1;
     }
-  }
-  current= current + numToLoad;
+    // var bg = document.getElementById('bg');
+    // bg.style.backgroundImage = 'url('+response+')';
+  });
 }
-
-$(document).scroll(function(){
-    if($(this).scrollTop()>=$(".bg"+current).position().top && getImages){
-        loadImages(numToLoad);
-    }
-})
 
 $(document).ready(function() {
-	for (i=0; i <numToLoad; i++) {
-    // newImage();
-  }
-  // loadImages(numToLoad);
-  // skrollr = skrollr.init();
-  // skrollr.refresh();
+	loadImages();
   startTime();
   var next = document.getElementById('next');
   next.onclick = newImage;

@@ -15,11 +15,13 @@ class myHandler(BaseHTTPRequestHandler):
 		self.send_header('Content-type','text/html')
 		self.end_headers()
 		if len(data) > 0:
-			index = random.randint(0,len(data)-1)
-			toSend = data[index]['source']
-			# del files[index]
-			print toSend
-			self.wfile.write(toSend)
+			toSendList = []
+			for i in range (0, 10):
+				index = random.randint(0,len(data)-1)
+				toSend = data[index]['source']
+				toSendList.append(toSend)
+			print toSendList
+			self.wfile.write(','.join(toSendList))
 		else:
 			self.wfile.write('None')
 		return

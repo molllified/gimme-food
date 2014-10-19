@@ -6,6 +6,7 @@ body {
 
 /* line 8, ../sass/main.scss */
 .bg {
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
@@ -15,34 +16,43 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
+  transition: all 1s ease-in-out;
   height: 100vh;
+  display: block;
+  /*overflow: hidden;*/
+  opacity: 0;
+  /*&:not(.active){
+  	opacity: 0;
+  	/*display: none;
+  }; */
 }
-
-/* line 21, ../sass/main.scss */
-.first {
-  background-image: url("../../images/salmon.jpg");
-}
-
 /* line 25, ../sass/main.scss */
-.second {
+.bg.active {
+  opacity: 1;
+}
+
+/* line 34, ../sass/main.scss */
+#bg0 {
   background-image: url("../../images/paella.jpg");
 }
 
-/* line 29, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 .container {
   opacity: 0.87;
   font-family: 'Lato', sans-serif;
   color: #fff;
   z-index: 2;
   text-align: center;
+  bottom: 0;
+  position: fixed;
 }
-/* line 36, ../sass/main.scss */
+/* line 47, ../sass/main.scss */
 .container p {
   font-weight: bolder;
   font-size: 75px;
   margin: 0;
 }
-/* line 42, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 .container h1 {
   bottom: 25px;
   position: relative;
@@ -51,7 +61,7 @@ body {
   padding: 10px 0;
 }
 
-/* line 51, ../sass/main.scss */
+/* line 62, ../sass/main.scss */
 .wrapper {
   /* set the height of the element which contains what you want to center */
   height: 100%;
@@ -60,7 +70,7 @@ body {
   margin: 0 auto;
 }
 
-/* line 59, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 .wrapper:before, .container {
   /* these are the important styles for the centered element: */
   display: inline-block;
@@ -68,11 +78,11 @@ body {
   width: 100%;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 .nav {
   display: inline-block;
 }
-/* line 69, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 .nav #next {
   position: fixed;
   right: 0;
@@ -80,19 +90,20 @@ body {
   bottom: 0;
   background-color: transparent;
   width: 60px;
+  z-index: 3;
 }
-/* line 78, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 .nav #next:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 82, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 .nav #next img {
-  top: 50%;
+  top: 45%;
   left: 30%;
   position: absolute;
 }
 
-/* line 89, ../sass/main.scss */
+/* line 101, ../sass/main.scss */
 .wrapper:before {
   /* this is the important part */
   content: '';
