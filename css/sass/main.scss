@@ -66,7 +66,7 @@ body{
 .nav {
 	display: inline-block;
 
-	.next {
+	#next {
 		position: fixed;
 		right: 0;
 		top: 0;
@@ -75,11 +75,11 @@ body{
 		width: 60px;
 	}
 
-	.next:hover {
+	#next:hover {
 		background-color: rgba(0, 0, 0, .1);
 	}
 
-	.next img {
+	#next img {
 		top: 50%;
 		left: 30%;
 		position: absolute;

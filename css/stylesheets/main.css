@@ -73,7 +73,7 @@ body {
   display: inline-block;
 }
 /* line 69, ../sass/main.scss */
-.nav .next {
+.nav #next {
   position: fixed;
   right: 0;
   top: 0;
@@ -82,11 +82,11 @@ body {
   width: 60px;
 }
 /* line 78, ../sass/main.scss */
-.nav .next:hover {
+.nav #next:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 /* line 82, ../sass/main.scss */
-.nav .next img {
+.nav #next img {
   top: 50%;
   left: 30%;
   position: absolute;

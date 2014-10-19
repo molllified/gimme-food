@@ -32,14 +32,8 @@ function newImage() {
       getImages = false;
       return;
     }
-		var newdiv = document.createElement('div');
-		newdiv.setAttribute('class',"bg "+ "bg"+counter);
-		newdiv.style.backgroundImage = 'url('+response+')';
-		newdiv.innerHTML="<div class='wrapper'><div class='container'><h1>hello</h1></div></div>"
-		document.body.appendChild(newdiv);
-    skrollr.refresh();
-    skrollr.refresh($('.bg'+counter));
-    counter = counter +1;
+    var bg = document.getElementById('bg');
+    bg.style.backgroundImage = 'url('+response+')';
 	});
 }
 
@@ -66,4 +60,6 @@ $(document).ready(function() {
   // skrollr = skrollr.init();
   // skrollr.refresh();
   startTime();
+  var next = document.getElementById('next');
+  next.onclick = newImage;
 })
