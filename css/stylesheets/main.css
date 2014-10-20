@@ -21,22 +21,20 @@ body {
   display: block;
   /*overflow: hidden;*/
   opacity: 0;
-  /*&:not(.active){
-  	opacity: 0;
-  	/*display: none;
-  }; */
 }
 /* line 25, ../sass/main.scss */
 .bg.active {
   opacity: 1;
+  -webkit-filter: invert(0.1);
+  filter: invert(0.1);
 }
 
-/* line 34, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 #bg0 {
   background-image: url("../../images/paella.jpg");
 }
 
-/* line 38, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 .container {
   opacity: 0.87;
   font-family: 'Lato', sans-serif;
@@ -46,13 +44,13 @@ body {
   bottom: 0;
   position: fixed;
 }
-/* line 47, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 .container p {
   font-weight: bolder;
   font-size: 75px;
   margin: 0;
 }
-/* line 53, ../sass/main.scss */
+/* line 51, ../sass/main.scss */
 .container h1 {
   bottom: 25px;
   position: relative;
@@ -61,7 +59,7 @@ body {
   padding: 10px 0;
 }
 
-/* line 62, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .wrapper {
   /* set the height of the element which contains what you want to center */
   height: 100%;
@@ -70,7 +68,7 @@ body {
   margin: 0 auto;
 }
 
-/* line 70, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 .wrapper:before, .container {
   /* these are the important styles for the centered element: */
   display: inline-block;
@@ -78,11 +76,11 @@ body {
   width: 100%;
 }
 
-/* line 77, ../sass/main.scss */
+/* line 75, ../sass/main.scss */
 .nav {
   display: inline-block;
 }
-/* line 80, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 .nav #next {
   position: fixed;
   right: 0;
@@ -92,18 +90,18 @@ body {
   width: 60px;
   z-index: 3;
 }
-/* line 90, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 .nav #next:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 94, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .nav #next img {
   top: 45%;
   left: 30%;
   position: absolute;
 }
 
-/* line 101, ../sass/main.scss */
+/* line 99, ../sass/main.scss */
 .wrapper:before {
   /* this is the important part */
   content: '';

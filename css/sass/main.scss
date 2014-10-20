@@ -24,11 +24,9 @@ body{
 
 	&.active{
 		opacity: 1;
+		-webkit-filter: invert(0.1);
+		filter: invert(0.1);
 	};
-	/*&:not(.active){
-		opacity: 0;
-		/*display: none;
-	}; */
 }
 
 #bg0 {
