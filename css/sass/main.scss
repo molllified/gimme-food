@@ -43,9 +43,18 @@ body{
 	position: fixed;
 
 	p {
+		margin: 0;
+	}
+	
+	#clock {
 		font-weight: bolder;
 		font-size: 75px;
-		margin: 0;
+	}
+
+	#datetime {
+		font-size: 18px;
+		font-weight: normal;
+		padding-bottom: 20px;
 	}
 
 	h1 {
