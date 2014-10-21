@@ -59,7 +59,7 @@ function handleHour(hour) {
     return hour;
   }
   else {
-    hour - 12;
+    return hour - 12;
   }
 }
 
