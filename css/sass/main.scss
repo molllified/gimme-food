@@ -72,12 +72,15 @@ body {
 	}
 }
 
+.hidden {
+	display: none;
+}
+
 .leftnav {
 	position: fixed;
 	left: 0;
 	top: 0;
 	bottom: 0;
-	background-color: transparent;
 	width: 15%;
 	z-index: 3;
 
@@ -97,10 +100,10 @@ body {
 	}
 
 	#food_title {
-		bottom: 10;
+		bottom: 8px;
 		font-size: 14;
 		letter-spacing: 0.5px;
-		/* font-weight: lighter; */
+		/*font-weight: lighter; */
 		color: #D3D2D2;
 	}
 

@@ -18,8 +18,9 @@ class myHandler(BaseHTTPRequestHandler):
 			toSendList = []
 			for i in range (0, 10):
 				index = random.randint(0,len(data)-1)
-				toSend = data[index]['source']
-				toSendList.append(toSend)
+				source = data[index]['source']
+				title = data[index]['title']
+				toSendList.append(source + " "+ title)
 			print toSendList
 			self.wfile.write(','.join(toSendList))
 		else:

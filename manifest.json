@@ -9,7 +9,8 @@
     "permissions": [
       "http://*/",
       "https://*/",
-      "background"
+      "background",
+      "geolocation"
     ],
     "background": {
       "page": "background.html"

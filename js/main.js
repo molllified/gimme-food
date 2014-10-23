@@ -6,6 +6,30 @@ var getImages= true;
 var MONTHS_CONST = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var DAYS_CONST = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        document.getElementById("demo").innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    document.getElementById("demo").innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
+
+function getWeather() {
+  $.ajax({
+    url : "http://api.wunderground.com/api/5aa85d5ee29b832c/geolookup/conditions/q/IA/Cedar_Rapids.json",
+    dataType : "jsonp",
+    success : function(parsed_json) {
+      var location = parsed_json['location']['city'];
+      var temp_f = parsed_json['current_observation']['temp_f'];
+      alert("Current temperature in " + location + " is: " + temp_f);
+    }
+  });
+}
+
 $(document).keydown(function(e) {
     switch(e.which) {
         case 37: // left
@@ -75,6 +99,7 @@ function newImage() {
 	current = current + 1;
   $("#bg"+current).toggleClass("active");
 
+  document.getElementById('food_title').innerText = document.getElementById('bg'+current).firstChild.innerText;
   if (current % 5 == 0) {
     loadImages();
   }
@@ -91,10 +116,16 @@ function loadImages(number){
     }
     var list = response.split(',');
     for (i=0; i< list.length; i++){
+      var current = list[i];
+      var separator = current.indexOf(' ');
+      var image_link = current.substring(0, separator);
+      var title = current.substring(separator+1);
+
       var newdiv = document.createElement('div');
       newdiv.setAttribute('class',"bg");
       newdiv.setAttribute('id',"bg"+counter);
-      newdiv.style.backgroundImage = 'url('+list[i]+')';
+      newdiv.style.backgroundImage = 'url('+image_link+')';
+      newdiv.innerHTML = '<p class=\"hidden\" id=\"title\">'+title+'</p>';
       document.body.appendChild(newdiv);
       counter +=1;
     }
@@ -107,6 +138,7 @@ $(document).ready(function() {
 	loadImages();
   startTime();
   startDate();
+  getLocation();
   var next = document.getElementById('next');
   next.onclick = newImage;
 })
