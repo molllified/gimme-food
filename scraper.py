@@ -34,8 +34,5 @@ for photo in photos_list:
 		source = photo['url_o']
 	else:
 		source = "https://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg".format(photo['farm'], photo['server'], photo['id'], photo['secret'])
-	# if photo['url_o'] == 'https://farm5.staticflickr.com/4077/4887555902_f8eb4d63ab_o.jpg':
-		# import pdb; pdb.set_trace()
-
 	print '{"id":"' + currId + '", "title":"' + currTitle + '", "source":"' + source +'", "longitude":"' + str(photo['longitude']) + '", "latitude":"' + str(photo['latitude']) + '"},'
 print ']'

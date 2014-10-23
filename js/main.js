@@ -121,6 +121,9 @@ function loadImages(number){
       var image_link = current.substring(0, separator);
       var title = current.substring(separator+1);
 
+      if (image_link === '') {
+        continue;
+      }
       var newdiv = document.createElement('div');
       newdiv.setAttribute('class',"bg");
       newdiv.setAttribute('id',"bg"+counter);
