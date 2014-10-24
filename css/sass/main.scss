@@ -1,8 +1,12 @@
 @import 'compass/css3';
 
+$primary-color: #fff;
+$secondary-color: #EAEAEA;
+
 body{
 	margin: 0;
 	overflow: auto;
+	cursor: default;;
 }
 
 .bg {
@@ -35,7 +39,7 @@ body{
 
 body {
 	font-family: 'Lato', sans-serif;
-	color: #fff;
+	color: $primary-color;
 }
 
 .container {
@@ -61,6 +65,7 @@ body {
 		font-size: 18px;
 		font-weight: lighter;
 		padding-bottom: 20px;
+		color: $secondary-color;
 	}
 
 	h1 {
@@ -104,7 +109,7 @@ body {
 		font-size: 14;
 		letter-spacing: 0.5px;
 		/*font-weight: lighter; */
-		color: #D3D2D2;
+		color: $secondary-color;
 		width: 250px;
 		overflow: hidden;
 		white-space: nowrap;
@@ -112,7 +117,7 @@ body {
 	}
 
 	#food_title:hover {
-		color: #fff;
+		color: $primary-color;
 		opacity: 0.87;
 	}
 

@@ -10,11 +10,11 @@ import sys
 UTF8Writer = codecs.getwriter('utf8')
 sys.stdout = UTF8Writer(sys.stdout)
 
-# api_key = '6b30d24a901279dcbabac8e4a438d155'
+api_key = '6b30d24a901279dcbabac8e4a438d155'
 api_secret = '49dd1aeef48fcece'
 
-api_key = '47dbc3b01589b715b9c204211bcda208'
-api_secret = '4df9fe589fb912d4'
+# api_key = '47dbc3b01589b715b9c204211bcda208'
+# api_secret = '4df9fe589fb912d4'
 
 flickr = flickrapi.FlickrAPI(api_key, api_secret)
 photos = flickr.photos_search(text='san francisco food', per_page='500', sort='relevance', has_geo='true', format='json', media='photos', 

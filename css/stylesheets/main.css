@@ -1,10 +1,11 @@
-/* line 3, ../sass/main.scss */
+/* line 6, ../sass/main.scss */
 body {
   margin: 0;
   overflow: auto;
+  cursor: default;
 }
 
-/* line 8, ../sass/main.scss */
+/* line 12, ../sass/main.scss */
 .bg {
   position: absolute;
   left: 0;
@@ -22,25 +23,25 @@ body {
   /*overflow: hidden;*/
   opacity: 0;
 }
-/* line 25, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 .bg.active {
   opacity: 1;
   -webkit-filter: invert(0.1);
   filter: invert(0.1);
 }
 
-/* line 32, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 #bg0 {
   background-image: url("../../images/paella.jpg");
 }
 
-/* line 36, ../sass/main.scss */
+/* line 40, ../sass/main.scss */
 body {
   font-family: 'Lato', sans-serif;
   color: #fff;
 }
 
-/* line 41, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 .container {
   opacity: 0.87;
   z-index: 2;
@@ -51,22 +52,23 @@ body {
   vertical-align: bottom;
   width: 100%;
 }
-/* line 51, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .container p {
   margin: 0;
 }
-/* line 55, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 .container #clock {
   font-weight: bolder;
   font-size: 75px;
 }
-/* line 60, ../sass/main.scss */
+/* line 64, ../sass/main.scss */
 .container #datetime {
   font-size: 18px;
   font-weight: lighter;
   padding-bottom: 20px;
+  color: #EAEAEA;
 }
-/* line 66, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .container h1 {
   bottom: 25px;
   position: relative;
@@ -75,12 +77,12 @@ body {
   padding: 10px 0;
 }
 
-/* line 75, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 .hidden {
   display: none;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 .leftnav {
   position: fixed;
   left: 0;
@@ -89,14 +91,14 @@ body {
   width: 15%;
   z-index: 3;
 }
-/* line 87, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .leftnav p {
   position: fixed;
   left: 60px;
   letter-spacing: 0.5px;
   opacity: 0.87;
 }
-/* line 94, ../sass/main.scss */
+/* line 99, ../sass/main.scss */
 .leftnav #food_fix {
   font-size: 17;
   font-weight: bolder;
@@ -104,31 +106,31 @@ body {
   letter-spacing: 0.5px;
   left: 40px;
 }
-/* line 102, ../sass/main.scss */
+/* line 107, ../sass/main.scss */
 .leftnav #food_title {
   bottom: 8px;
   font-size: 14;
   letter-spacing: 0.5px;
   /*font-weight: lighter; */
-  color: #D3D2D2;
+  color: #EAEAEA;
   width: 250px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-/* line 114, ../sass/main.scss */
+/* line 119, ../sass/main.scss */
 .leftnav #food_title:hover {
   color: #fff;
   opacity: 0.87;
 }
-/* line 119, ../sass/main.scss */
+/* line 124, ../sass/main.scss */
 .leftnav #yelp_img {
   width: 15px;
   position: fixed;
   left: 40px;
   bottom: 41;
 }
-/* line 126, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 .leftnav #flickr_img {
   width: 15px;
   position: fixed;
@@ -136,11 +138,11 @@ body {
   bottom: 21;
 }
 
-/* line 134, ../sass/main.scss */
+/* line 139, ../sass/main.scss */
 .rightnav {
   display: inline-block;
 }
-/* line 137, ../sass/main.scss */
+/* line 142, ../sass/main.scss */
 .rightnav #next {
   position: fixed;
   right: 0;
@@ -150,18 +152,18 @@ body {
   width: 60px;
   z-index: 3;
 }
-/* line 147, ../sass/main.scss */
+/* line 152, ../sass/main.scss */
 .rightnav #next:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 151, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 .rightnav #next img {
   top: 45%;
   left: 30%;
   position: absolute;
 }
 
-/* line 158, ../sass/main.scss */
+/* line 163, ../sass/main.scss */
 .vignette:after {
   box-shadow: inset 0 0 15em #000;
   position: absolute;

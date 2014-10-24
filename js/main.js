@@ -31,22 +31,8 @@ function getWeather() {
 }
 
 $(document).keydown(function(e) {
-    switch(e.which) {
-        case 37: // left
-        break;
-
-        case 38: // up
-        break;
-
-        case 39: // right
-          console.log('right');
-          newImage();
-        break;
-
-        case 40: // down
-        break;
-
-        default: return; // exit this handler for other keys
+    if (e.which == 39) {
+      newImage();
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
@@ -103,7 +89,6 @@ function newImage() {
   if (current % 5 == 0) {
     loadImages();
   }
-  //swap out active transition stuff
 }
 
 function loadImages(number){
@@ -141,7 +126,7 @@ $(document).ready(function() {
 	loadImages();
   startTime();
   startDate();
-  getLocation();
+  // getLocation();
   var next = document.getElementById('next');
   next.onclick = newImage;
 })
