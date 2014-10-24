@@ -5,6 +5,7 @@ var skrollr;
 var getImages= true;
 var MONTHS_CONST = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var DAYS_CONST = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var last_request = new Date().getTime() / 1000;
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -81,18 +82,23 @@ function addZero(i) {
 }
 
 function newImage() {
-  $("#bg"+current).toggleClass("active");
-	current = current + 1;
-  $("#bg"+current).toggleClass("active");
+  var currentTime= new Date().getTime() / 1000;
 
-  document.getElementById('food_title').innerText = document.getElementById('bg'+current).firstChild.innerText;
-  if (current % 5 == 0) {
-    loadImages();
+  if (currentTime - last_request > 1) { 
+    $("#bg"+current).toggleClass("active");
+  	current = current + 1;
+    $("#bg"+current).toggleClass("active");
+
+    document.getElementById('food_title').innerText = document.getElementById('bg'+current).firstChild.innerText;
+    if (current % 5 == 0) {
+      loadImages();
+    }
   }
+  last_request = currentTime;
 }
 
 function loadImages(number){
-  $.get('http://localhost:8080/', function (response) {
+  $.get('http://ec2-54-183-81-6.us-west-1.compute.amazonaws.com:8080/', function (response) {
     // use response here; jQuery passes it as the first parameter
     // alert(response)
     if(response === 'None') {
