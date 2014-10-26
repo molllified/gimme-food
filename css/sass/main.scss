@@ -6,7 +6,6 @@ $secondary-color: #EAEAEA;
 body{
 	margin: 0;
 	overflow: auto;
-	cursor: default;;
 }
 
 .bg {
@@ -97,7 +96,7 @@ body {
 	}
 
 	#food_fix {
-		font-size: 17;
+		font-size: 14;
 		font-weight: bolder;
 		bottom: 25;
 		letter-spacing: 0.5px;
@@ -106,7 +105,7 @@ body {
 
 	#food_title {
 		bottom: 8px;
-		font-size: 14;
+		font-size: 12;
 		letter-spacing: 0.5px;
 		/*font-weight: lighter; */
 		color: $secondary-color;

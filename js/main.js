@@ -1,5 +1,5 @@
 var current = 0;
-var counter = 1;
+var counter = 0;
 var numToLoad= 10;
 var skrollr;
 var getImages= true;
@@ -116,10 +116,17 @@ function loadImages(number){
         continue;
       }
       var newdiv = document.createElement('div');
-      newdiv.setAttribute('class',"bg");
+
+      if (counter == 0) {
+        newdiv.setAttribute('class',"bg active");
+        document.getElementById('food_title').innerText = title;
+      }
+      else {
+        newdiv.setAttribute('class',"bg");
+        newdiv.innerHTML = '<p class=\"hidden\" id=\"title\">'+title+'</p>';
+      }
       newdiv.setAttribute('id',"bg"+counter);
       newdiv.style.backgroundImage = 'url('+image_link+')';
-      newdiv.innerHTML = '<p class=\"hidden\" id=\"title\">'+title+'</p>';
       document.body.appendChild(newdiv);
       counter +=1;
     }
