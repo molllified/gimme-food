@@ -98,9 +98,7 @@ function newImage() {
 }
 
 function loadImages(number){
-  $.get('http://ec2-54-183-81-6.us-west-1.compute.amazonaws.com:8080/', function (response) {
-    // use response here; jQuery passes it as the first parameter
-    // alert(response)
+  $('.background').load('http://ec2-54-183-81-6.us-west-1.compute.amazonaws.com:8080/', function(response) {
     if(response === 'None') {
       getImages = false;
       return;
@@ -118,7 +116,7 @@ function loadImages(number){
       var newdiv = document.createElement('div');
 
       if (counter == 0) {
-        newdiv.setAttribute('class',"bg active");
+        newdiv.setAttribute('class',"bg active hidden");
         document.getElementById('food_title').innerText = title;
       }
       else {
@@ -128,10 +126,17 @@ function loadImages(number){
       newdiv.setAttribute('id',"bg"+counter);
       newdiv.style.backgroundImage = 'url('+image_link+')';
       document.body.appendChild(newdiv);
+
+      if (counter ==0){
+        setTimeout(function(){
+          $('.vignette').fadeIn(200);
+          $('.vignette').removeClass('hidden');
+          $('#bg0').fadeIn(500);
+          $('#bg0').removeClass('hidden');
+        }, 150);
+      }
       counter +=1;
     }
-    // var bg = document.getElementById('bg');
-    // bg.style.backgroundImage = 'url('+response+')';
   });
 }
 

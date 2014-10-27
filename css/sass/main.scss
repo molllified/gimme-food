@@ -32,13 +32,10 @@ body{
 	};
 }
 
-#bg0 {
-	background-image: url("../../images/paella.jpg");
-}
-
 body {
 	font-family: 'Lato', sans-serif;
 	color: $primary-color;
+	transition: opacity 500ms;
 }
 
 .container {
