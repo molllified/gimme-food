@@ -1,2 +1,4 @@
 rauth == 0.7.0
 flickrapi == 1.4.4
+mongodb == 2.6.4
+pymongo==2.6.3

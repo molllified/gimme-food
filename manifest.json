@@ -1,7 +1,7 @@
 {
     "name": "Indulgence",
     "description": "Indulgence Tab - Where you get your food fix",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "incognito": "split",
     "chrome_url_overrides": {
       "newtab": "index.html"

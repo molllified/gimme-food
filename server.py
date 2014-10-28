@@ -4,6 +4,7 @@ from SimpleHTTPServer import SimpleHTTPRequestHandler
 import random
 from random import randint
 import json
+from pymongo import MongoClient
 
 data = []
 	
@@ -36,11 +37,15 @@ def load_data():
 def main():
 	try:
 		server = HTTPServer(('', 8080), myHandler)
+		conn = pymongo.MongoClient()
 		load_data()
 		server.serve_forever()
+	except pymongo.errors.ConnectionFailure, e:
+		print "Could not connect to MongoDB: %s" % e  
 	except KeyboardInterrupt:
 		print '^C recieved'
 		server.socket.close()
+	print conn
 
 if __name__ == '__main__':
 	main()

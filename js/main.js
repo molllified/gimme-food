@@ -63,7 +63,7 @@ function startTime() {
 }
 
 function handleHour(hour) {
-  if (hour < 12) {
+  if (hour <= 12) {
     if (hour == 0) {
       return 12;
     }
