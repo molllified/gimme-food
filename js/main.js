@@ -98,7 +98,7 @@ function newImage() {
 }
 
 function loadImages(number){
-  $('.background').load('http://ec2-54-183-81-6.us-west-1.compute.amazonaws.com:8080/', function(response) {
+  $('.background').load('http://localhost:8080/', function(response) {
     if(response === 'None') {
       getImages = false;
       return;

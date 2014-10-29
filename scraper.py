@@ -6,6 +6,8 @@ import re
 import json
 import codecs
 import sys
+import pymongo
+from pymongo import MongoClient
 
 UTF8Writer = codecs.getwriter('utf8')
 sys.stdout = UTF8Writer(sys.stdout)
@@ -24,15 +26,25 @@ parsed_photos = response_parser.findall(photos)
 photos = json.loads(parsed_photos[0])
 photos_list = photos['photos']['photo']
 
-print '['
-for photo in photos_list:
-	if 'height_o' not in photo or int(photo['height_o']) < 1000 or float(photo['height_o'])/float(photo['width_o']) >1.25:
-		continue
-	currId = photo['id']
-	currTitle = photo['title']
-	if 'url_o' in photo:
-		source = photo['url_o']
-	else:
-		source = "https://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg".format(photo['farm'], photo['server'], photo['id'], photo['secret'])
-	print '{"id":"' + currId + '", "title":"' + currTitle + '", "source":"' + source +'", "longitude":"' + str(photo['longitude']) + '", "latitude":"' + str(photo['latitude']) + '"},'
-print ']'
+try: 
+	client = MongoClient()
+	db = client.mydb
+	posts = db.posts
+	db.drop_collection('posts')
+
+	for photo in photos_list:
+		if 'height_o' not in photo or int(photo['height_o']) < 1000 or float(photo['height_o'])/float(photo['width_o']) >1.25:
+			continue
+		if 'url_o' in photo:
+			source = photo['url_o']
+		else:
+			source = "https://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg".format(photo['farm'], photo['server'], photo['id'], photo['secret'])
+	toAdd = {}
+	toAdd['id'] = photo['id']
+	toAdd['title'] = photo['title']
+	toAdd['source'] = source
+	toAdd['longitude'] = str(photo['longitude'])
+	toAdd['latitude'] = str(photo['latitude'])
+	posts.insert(toAdd)
+except pymongo.errors.ConnectionFailure, e:
+	print "Could not connect to MongoDB: %s" % e  
