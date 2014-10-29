@@ -6,6 +6,7 @@ from random import randint
 import json
 import pymongo
 from pymongo import MongoClient
+import random 
 
 class myHandler(BaseHTTPRequestHandler):
 	
@@ -19,10 +20,11 @@ class myHandler(BaseHTTPRequestHandler):
 		try:
 			client = MongoClient()
 			db = client.mydb
-			posts = db.posts.find().limit(10)
+			startVal = random.random()
+			posts = db.posts.find({"random": {"$gt": startVal}}).limit(10)
 		except pymongo.errors.ConnectionFailure, e:
 			print "Could not connect to MongoDB: %s" % e
-			  
+
 		for doc in posts: 
 			source = doc['source']
 			title = doc['title']

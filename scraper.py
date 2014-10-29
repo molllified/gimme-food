@@ -8,6 +8,7 @@ import codecs
 import sys
 import pymongo
 from pymongo import MongoClient
+import random
 
 UTF8Writer = codecs.getwriter('utf8')
 sys.stdout = UTF8Writer(sys.stdout)
@@ -39,12 +40,14 @@ try:
 			source = photo['url_o']
 		else:
 			source = "https://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg".format(photo['farm'], photo['server'], photo['id'], photo['secret'])
-	toAdd = {}
-	toAdd['id'] = photo['id']
-	toAdd['title'] = photo['title']
-	toAdd['source'] = source
-	toAdd['longitude'] = str(photo['longitude'])
-	toAdd['latitude'] = str(photo['latitude'])
-	posts.insert(toAdd)
+		toAdd = {}
+		toAdd['random'] = random.random()
+		toAdd['photo_id'] = photo['id']
+		toAdd['title'] = photo['title']
+		toAdd['source'] = source
+		toAdd['longitude'] = str(photo['longitude'])
+		toAdd['latitude'] = str(photo['latitude'])
+		posts.insert(toAdd)
+	posts.ensure_index("random");
 except pymongo.errors.ConnectionFailure, e:
 	print "Could not connect to MongoDB: %s" % e  
